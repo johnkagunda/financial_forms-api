@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+    <style>
+        .notification {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        #connectionStatus {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .connected { background: #d4edda; }
+        .disconnected { background: #f8d7da; }
+    </style>
+</head>
+<body>
+    <h1>WebSocket Notifications Test</h1>
+    
+    <div id="connectionStatus" class="disconnected">
+        Disconnected
+    </div>
+    
+    <button onclick="connectWebSocket()">Connect</button>
+    <button onclick="disconnectWebSocket()">Disconnect</button>
+    
+    <h2>Notifications:</h2>
+    <div id="notifications"></div>
+
+    <script>
+        let notificationSocket = null;
+
+        function connectWebSocket() {
+            const wsScheme = window.location.protocol === "https:" ? "wss:" : "ws:";
+            const wsUrl = wsScheme + "//" + window.location.host + "/ws/notifications/";
+            
+            notificationSocket = new WebSocket(wsUrl);
+            
+            notificationSocket.onopen = function(e) {
+                document.getElementById('connectionStatus').textContent = 'Connected';
+                document.getElementById('connectionStatus').className = 'connected';
+                console.log('WebSocket connected');
+            };
+
+            notificationSocket.onmessage = function(e) {
+                const data = JSON.parse(e.data);
+                if (data.type === 'notification') {
+                    showNotification(data.message);
+                }
+            };
+
+            notificationSocket.onclose = function(e) {
+                document.getElementById('connectionStatus').textContent = 'Disconnected';
+                document.getElementById('connectionStatus').className = 'disconnected';
+                console.log('WebSocket disconnected');
+            };
+
+            notificationSocket.onerror = function(e) {
+                console.error('WebSocket error:', e);
+            };
+        }
+
+        function disconnectWebSocket() {
+            if (notificationSocket) {
+                notificationSocket.close();
+                notificationSocket = null;
+            }
+        }
+
+        function showNotification(message) {
+            const notificationsDiv = document.getElementById('notifications');
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <strong>New Notification:</strong> ${message}
+                <br><small>${new Date().toLocaleTimeString()}</small>
+            `;
+            notificationsDiv.prepend(notification);
+        }
+
+        // Auto-connect when page loads
+        window.onload = connectWebSocket;
+    </script>
+</body>
+</html>
