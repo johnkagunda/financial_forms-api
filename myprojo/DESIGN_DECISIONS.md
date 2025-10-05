@@ -1,4 +1,4 @@
-# Design Decisions Documentation 🎯
+# Design Decisions Documentation 
 
 This document outlines the key architectural and technical decisions made in building this dynamic form management system (similar to Google Forms).
 
@@ -15,7 +15,7 @@ This document outlines the key architectural and technical decisions made in bui
 
 ---
 
-## Framework Choice 🔧
+## Framework Choice 
 
 ### Decision: Django + Django REST Framework
 **Chosen Technology**: Django 5.2.4 with Django REST Framework
@@ -34,7 +34,7 @@ This document outlines the key architectural and technical decisions made in bui
 
 ---
 
-## Frontend Strategy 📱
+## Frontend Strategy 
 
 ### Decision: API-First with CORS Support
 **Chosen Approach**: Backend API with CORS enabled for external frontend integration
@@ -52,7 +52,7 @@ This document outlines the key architectural and technical decisions made in bui
 
 ---
 
-## Real-Time Features ⚡
+## Real-Time Features 
 
 ### Decision: Django Channels with WebSockets
 **Chosen Technology**: Django Channels with in-memory channel layer
@@ -75,7 +75,7 @@ This document outlines the key architectural and technical decisions made in bui
 
 ---
 
-## Form Architecture 📋
+## Form Architecture 
 
 ### Decision: Three-Model Design (Form → Fields → Responses)
 **Chosen Architecture**:
@@ -101,7 +101,7 @@ Form (1) → (N) Field → (N) FieldResponse → (1) Submission
 
 ---
 
-## API Design 🔌
+## API Design 
 
 ### Decision: Multiple ViewSets with Different Perspectives
 **Chosen Approach**: 
@@ -138,7 +138,7 @@ Form (1) → (N) Field → (N) FieldResponse → (1) Submission
 
 ---
 
-## Data Storage Strategy 💾
+## Data Storage Strategy 
 
 ### Decision: Hybrid Response Storage
 **Chosen Approach**: Multiple typed columns in `FieldResponse` model
@@ -169,7 +169,7 @@ value_json = JSONField()
 
 ---
 
-## Testing Approach 🧪
+## Testing Approach 
 
 ### Decision: API-Focused Testing Strategy
 **Current Implementation**: Basic test files in each app
@@ -187,7 +187,7 @@ value_json = JSONField()
 
 ---
 
-## Scalability Considerations 📈
+## Scalability Considerations 
 
 ### Decision: Database-First Optimization
 **Current Approach**:
@@ -212,7 +212,7 @@ value_json = JSONField()
 
 ---
 
-## Security Implementation 🔒
+## Security Implementation 
 
 ### Decision: Multi-Layer Security Approach
 **Current Implementation**:
@@ -252,7 +252,7 @@ value_json = JSONField()
 
 ---
 
-## Future Considerations 🔮
+## Future Considerations 
 
 ### Short-term Improvements
 - **Caching Layer**: Redis integration for frequently accessed data
