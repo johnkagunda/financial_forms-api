@@ -2,7 +2,7 @@
 
 A comprehensive Django-based form builder and response management system similar to Google Forms, featuring real-time notifications, analytics, and a flexible API architecture.
 
-## 🚀 Features
+##  Features
 
 - **Dynamic Form Creation**: Build forms with multiple field types (text, number, date, dropdown, checkbox, file upload)
 - **Real-Time Notifications**: WebSocket-powered live updates for new submissions
