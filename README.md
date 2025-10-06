@@ -1,4 +1,4 @@
-# Dynamic Form Management System 📋
+# Dynamic Form Management System 
 
 A comprehensive Django-based form builder and response management system similar to Google Forms, featuring real-time notifications, analytics, and a flexible API architecture.
 
@@ -13,7 +13,7 @@ A comprehensive Django-based form builder and response management system similar
 - **Status Workflow**: Draft → Submitted → Under Review → Approved/Rejected
 - **RESTful API**: Comprehensive API with multiple ViewSets for different workflows
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Backend**: Django 4.2.25 + Django REST Framework
 - **Real-time**: Django Channels with WebSockets
@@ -22,14 +22,14 @@ A comprehensive Django-based form builder and response management system similar
 - **File Storage**: Local (development) / AWS S3 (production)
 - **Authentication**: JWT Token-based authentication
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Python 3.8+ 
 - Node.js 16+ (for frontend development)
 - Redis Server (for real-time features and Celery)
 - PostgreSQL (for production)
 
-## ⚙️ Installation
+## Installation
 
 ### 1. Clone the Repository
 
@@ -225,7 +225,7 @@ curl -X POST http://localhost:8000/api/field-responses/ \
 
 For detailed API documentation, see [FORM_RESPONSES_API.md](FORM_RESPONSES_API.md)
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 myprojo/
@@ -321,7 +321,7 @@ AWS_SECRET_ACCESS_KEY = 'your-secret-key'
 AWS_STORAGE_BUCKET_NAME = 'your-bucket-name'
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Run Tests
 ```bash
@@ -355,7 +355,7 @@ curl -X POST http://localhost:8000/api/forms/ \
   -d '{"name": "Test Form", "description": "Test form description"}'
 ```
 
-## 🚀 Deployment
+##  Deployment
 
 ### Production Checklist
 
@@ -420,7 +420,7 @@ volumes:
   postgres_data:
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -432,18 +432,9 @@ volumes:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+##  Support
 
 - **Documentation**: See [DESIGN_DECISIONS.md](DESIGN_DECISIONS.md) for architecture details
 - **API Docs**: See [FORM_RESPONSES_API.md](FORM_RESPONSES_API.md) for API reference
 - **Issues**: Create an issue on GitHub for bugs or feature requests
 
-## 🙏 Acknowledgments
-
-- Django and Django REST Framework communities
-- Django Channels for real-time features
-- All contributors and users of this project
-
----
-
-**Made with ❤️ using Django**
